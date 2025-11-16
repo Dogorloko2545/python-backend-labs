@@ -1,24 +1,24 @@
 # 🐍 Python Backend Labs
 
-> Repositorio de laboratorios y ejercicios prácticos centrados en el desarrollo backend con Python. Este material cubre desde herramientas de línea de comandos (CLI) hasta la creación de APIs web.
+> Repository of labs and practical exercises focused on backend development with Python.
 
 ---
 
-## 🧭 Tabla de Contenidos
+## 🧭 Table of content
 
-Este es un índice rápido a las diferentes carpetas de ejercicios incluidas en este repositorio.
+index to the main exercise folders.
 
-* [**Python Calculadora**](./python_calculadora): Una calculadora simple de línea de comandos.
+* [**Python Calcullator**](./python_calculator): A simple command-line calculator.
 
 
 ---
 
-## 🛠️ Ejercicios Incluidos
+## 🛠️ Included Exercises
 
-A continuación, se detalla el contenido de cada ejercicio, incluyendo una breve descripción y cómo acceder a él.
+The content of each exercise is detailed below, including a brief description and how to access it.
 
-### 1. 📂 python_calculadora
+### 1. 📂 python_calculator
 
-* **Descripción:** Una herramienta CLI simple diseñada para practicar la captura de entradas (inputs) y la lógica condicional básica en Python.
-* **Tecnología:** Python estándar.
-* **Ubicación:** `./python_calculadora`
+* **Descripción:** A simple CLI tool designed for practicing input capture and basic conditional logic in Python.
+* **Tecnología:** Python.
+* **Ubicación:** `./python_calculator`

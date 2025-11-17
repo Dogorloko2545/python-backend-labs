@@ -8,7 +8,7 @@
 
 index to the main exercise folders.
 
-* [**Python Calcullator**](./python_calculator): A simple command-line calculator.
+* [**Python Calculator**](./python_calculator): A simple command-line calculator.
 
 
 ---

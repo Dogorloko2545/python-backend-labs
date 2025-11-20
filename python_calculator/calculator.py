@@ -49,8 +49,8 @@ class Menu(Calculator):
         print("-------------------------------")
 
     def number(self):
-        self.a = int(input("digite numero: "))
-        self.b = int(input("digite numero: "))
+        self.a = int(input("enter number: "))
+        self.b = int(input("enter number: "))
 
     def execute(self):
         while True:
@@ -73,7 +73,7 @@ class Menu(Calculator):
                 case 5:
                     break
                 case _:
-                    print("Seleccione una de las opciones..")
+                    print("Selection a options...")
 
 
 if __name__ == "__main__":

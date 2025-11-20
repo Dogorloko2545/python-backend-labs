@@ -3,31 +3,36 @@ class Calculator:
     Docstring para Calculator
     """
 
-    def __init__(self):
-        self.result = "Result:"
+    def __init__(self, a=0, b=0):
+        self.a = a
+        self.b = b
 
-    def addition(self, a, b):
-        return f"{self.result} {a + b}"
+    def message(self):
+        return "Resultado: "
 
-    def subtraction(self, a, b):
-        return f"{self.result} {a - b}"
+    def addition(self):
+        return f"{self.message()} {self.a + self.b}"
 
-    def multiplication(self, a, b):
-        return f"{self.result} {a * b}"
+    def subtraction(self):
+        return f"{self.message()} {self.a - self.b}"
 
-    def divition(self, a, b):
-        if b == 0:
+    def multiplication(self):
+        return f"{self.message()} {self.a * self.b}"
+
+    def divition(self):
+        if self.b == 0:
             return "Error: Divition for cero"
-        return f"{self.result} {a / b}"
+        return f"{self.message()} {self.a / self.b}"
 
 
-class Menu:
+class Menu(Calculator):
     """
     Create menu options
     """
 
     def __init__(self):
-        self.calculadora = Calculator()
+        # self.calculadora = Calculator()
+        super().__init__()
         self.opciones = {
             "1": "addition",
             "2": "subtraction",
@@ -43,32 +48,32 @@ class Menu:
             print(f"{key}. {value}")
         print("-------------------------------")
 
-    def num(self):
-        a = int(input("digite numero: "))
-        b = int(input("digite numero: "))
-        return a, b
+    def number(self):
+        self.a = int(input("digite numero: "))
+        self.b = int(input("digite numero: "))
 
     def execute(self):
         while True:
             self.show_menu()
             election = int(input("Selection a options: (1-5): "))
 
-            if election in [1, 2, 3, 4, 5]:
-                if election == 1:
-                    a, b = self.num()
-                    print(self.calculadora.addition(a, b))
-                if election == 2:
-                    a, b = self.num()
-                    print(self.calculadora.subtraction(a, b))
-                if election == 3:
-                    a, b = self.num()
-                    print(self.calculadora.multiplication(a, b))
-                if election == 4:
-                    a, b = self.num()
-                    print(self.calculadora.divition(a, b))
-                if election == 5:
-                    print(" God bye... ")
+            match election:
+                case 1:
+                    self.number()
+                    print(self.addition())
+                case 2:
+                    self.number()
+                    print(self.subtraction())
+                case 3:
+                    self.number()
+                    print(self.multiplication())
+                case 4:
+                    self.number()
+                    print(self.divition())
+                case 5:
                     break
+                case _:
+                    print("Seleccione una de las opciones..")
 
 
 if __name__ == "__main__":

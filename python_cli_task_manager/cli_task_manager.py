@@ -1,13 +1,16 @@
 class Task:
-    def __init__(self, id, title, body, status=False):
-        self.id = id
+    idTask = 0
+
+    def __init__(self, title, body, status=False):
+        Task.idTask += 1  # increment the class counter
         self.title = title
         self.body = body
         self.status = status
 
-    def task_dict(self):
+    # return dict
+    def dictTak(self):
         return {
-            "id": self.id,
+            "id": Task.idTask,
             "title": self.title,
             "body": self.body,
             "status": self.status,
@@ -17,43 +20,70 @@ class Task:
 class TaskMager:
     def __init__(self):
         self.listDict = []
-        self.menuOpt = ["add task", "list task", "complete task", "clear task"]
-
-    def optMenu(self):
-        menu = {
-            "1": self.addTask,
-            "2": self.listTask,
-            "3": self.completeTask,
-            "4": self.clearTask,
-        }
-        return menu
 
     def addTask(self):
-        print("opt: addTask")
+        titleTask = input("Title: ")
+        descTask = input("Task: ")
+
+        task = Task(titleTask, descTask)  # Transfer date to class Task
+        self.listDict.append(task.dictTak())  # Transfer dictionary to listDict
+
+        print("Task Add.!")
+        print("---------")
+        print("1) Add Task.")
+        print("2) Return.")
+
+        while True:
+            opt = input("Selections a optionst: ")
+            if opt == "1":
+                self.addTask()
+            elif opt == "2":
+                self.menu()
+            else:
+                print("Invalid option.")
 
     def listTask(self):
-        print("listTask")
+        for dictionary in self.listDict:
+            # access the list of dictionary
+            print(f"id: {dictionary['id']}")
+            print(f"title: {dictionary['title']}")
+            print(f"body: {dictionary['body']}")
+            print(f"status: {dictionary['status']}")
+            print("-----------------------------")
 
-    def completeTask(self):
-        print("completeTask")
+    def exit_program(self):
+        """Finaliza la ejecución del programa."""
+        print("\n-> Saliendo del programa. ¡Adiós!")
+        exit()
 
-    def clearTask(self):
-        print("clearTask")
+    def menu(self):
+        menuOpt = {
+            "1": self.addTask,
+            "2": self.listTask,
+            # "3": self.status,
+            # "4": self.remove,
+            "5": self.exit_program,
+        }
 
-    def run(self):
+        while True:
+            # Imprimimos las opciones
+            print("TASK MANAGER")
+            print("1) Add task")
+            print("2) List task")
+            print("3) Complete task")
+            print("4) Remove task")
+            print("5) Exit")
+            print("----------------------------------")
 
-        print("----- Menu -----")
-        for i, opt in enumerate(self.menuOpt, 1):
-            print(f"{i}. {opt}")
+            opt = input("Selection a options: ")
 
-        while True:        
-            options = input("choose one of the options: ")
-
-            if options in self.optMenu():
-                self.optMenu()[options]()
+            if opt in menuOpt:
+                menuOpt[opt]()
             else:
-                print("Invalid option")
+                print("Invalid options.")
+
 
 if __name__ == "__main__":
-    app = TaskMager()
-    app.run()
+    task = TaskMager()
+    task.menu()
+    # task.listTask()
